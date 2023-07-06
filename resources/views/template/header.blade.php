@@ -14,11 +14,8 @@
 </head>
 <body>
  
-
   <nav class="nav justify-content-center bg-dark ">
     <a class="nav-link active text-white" href="/" aria-current="page">Home</a>
     <a class="nav-link text-white" href="/product">Product</a>
     <a class="nav-link text-white" href="/contact">Contact</a>
   </nav>
-
-  

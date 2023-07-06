@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BasicController;
+use App\Http\Controllers\SingleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,15 +41,27 @@ use Illuminate\Support\Facades\Route;
 //     return "<h1>ID Number: $id</h1>";
 // })->whereAlphaNumeric('id');
 
-Route::get('/',function(){
-    return view('index');
-});
+// Route::get('/',function(){
+//     return view('index');
+// });
 
-Route::get('/product',function(){
-    return view('product');
-});
+// Route::get('/product',function(){
+//     return view('product');
+// });
 
-Route::get('/contact',function(){
-    return view('contact');
-});
+// Route::get('/contact',function(){
+//     return view('contact');
+// });
+// Basic Controller 
+Route::get('/',[BasicController::class, 'index']);
+Route::get('/product',[BasicController::class, 'product']);
+Route::get('/contact',[BasicController::class, 'contact']);
 
+Route::post('/contact',[BasicController::class, 'register']);
+
+
+// Single Action Controller 
+// Route::get('/product', SingleController::class);
+
+
+// Route::resource('/photos', PhotoController::class, 'index');
