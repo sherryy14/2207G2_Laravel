@@ -52,16 +52,19 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/contact',function(){
 //     return view('contact');
 // });
+
 // Basic Controller 
 Route::get('/',[BasicController::class, 'index']);
 Route::get('/product',[BasicController::class, 'product']);
 Route::get('/contact',[BasicController::class, 'contact']);
-
+// insert 
 Route::post('/contact',[BasicController::class, 'register']);
-
+// fetch 
+Route::get('/users', [BasicController::class, 'users']);
+// delete 
+Route::get('/delete/{id}', [BasicController::class, 'delete']);
 
 // Single Action Controller 
 // Route::get('/product', SingleController::class);
 
-
-// Route::resource('/photos', PhotoController::class, 'index');
+// Route::resource('/photos', PhotoController::class);

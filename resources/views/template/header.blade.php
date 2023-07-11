@@ -18,4 +18,5 @@
     <a class="nav-link active text-white" href="/" aria-current="page">Home</a>
     <a class="nav-link text-white" href="/product">Product</a>
     <a class="nav-link text-white" href="/contact">Contact</a>
+    <a class="nav-link text-white" href="/users">Users</a>
   </nav>

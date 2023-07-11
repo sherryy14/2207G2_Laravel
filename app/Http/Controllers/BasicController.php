@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Register;
-
+,
 class BasicController extends Controller
 {
     public function index(){
@@ -23,8 +23,8 @@ class BasicController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
-            'username' => 'required',
+            'email' => 'required|email|unique:register,email',
+            'username' => 'required|unique:register,username',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
             'city' => 'required',
@@ -39,14 +39,24 @@ class BasicController extends Controller
         $user->city = $request['city'];
 
         $user->save();
+        return redirect('/contact');
 
-        // return view('/register');
-        
+    }
 
+    public function users(){
+        $users = Register::all();
 
-        // echo "<pre>";
-        // print_r($request->toArray());
-        // echo "</pre>";
+        $all_users = compact('users');
 
+        return view('/users')->with($all_users);
+    }
+
+    public function delete($id){
+        $user_del = Register::find($id);
+
+        if(!is_null($user_del)){
+            $user_del->delete();
+        }
+        return redirect('/users');
     }
 }

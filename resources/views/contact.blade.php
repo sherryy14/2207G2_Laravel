@@ -8,7 +8,7 @@
     <h1 class="text-center">Contact Page</h1>
     <div class="container">
 
-        <form class="row g-3" method="post" action="{{ url('/') }}/register">
+        <form class="row g-3" method="post" >
             @csrf
             <div class="col-md-4">
                 <label for="validationDefault01" class="form-label">Name</label>
