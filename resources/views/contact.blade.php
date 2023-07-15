@@ -5,14 +5,15 @@
 
 
 @section('section')
-    <h1 class="text-center">Contact Page</h1>
+    <h1 class="text-center">{{$title}} User</h1>
     <div class="container">
 
-        <form class="row g-3" method="post" >
+        <form class="row g-3" action="{{$url}}" method="post" >
             @csrf
+
             <div class="col-md-4">
                 <label for="validationDefault01" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" id="validationDefault01">
+                <input type="text" class="form-control" name="name" id="validationDefault01" value="{{@$user->name}}">
                 <span class="text-danger">
                     @error('name')
                         {{ $message }}
@@ -21,7 +22,7 @@
             </div>
             <div class="col-md-4">
                 <label for="validationDefault02" class="form-label">Email</label>
-                <input type="text" class="form-control" id="validationDefault02" name="email">
+                <input type="text" class="form-control" id="validationDefault02" name="email" value="{{@$user->email}}">
                 <span class="text-danger">
                     @error('email')
                         {{ $message }}
@@ -32,7 +33,7 @@
                 <label for="validationDefaultUsername" class="form-label">Username</label>
                 <div class="input-group">
                     <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                    <input type="text" class="form-control" id="validationDefaultUsername" name="username"
+                    <input type="text" class="form-control" id="validationDefaultUsername" name="username" value="{{@$user->username}}"
                         aria-describedby="inputGroupPrepend2">
                         
                 </div>
@@ -42,6 +43,9 @@
                     @enderror
                 </span>
             </div>
+            @if ($title == "Create")
+                
+         
             <div class="col-md-6">
                 <label for="validationDefault03" class="form-label">Password</label>
                 <input type="password" class="form-control" id="validationDefault03" name="password">
@@ -60,9 +64,10 @@
                     @enderror
                 </span>
             </div>
+            @endif
             <div class="col-md-6">
                 <label for="validationDefault03" class="form-label">City</label>
-                <input type="text" class="form-control" id="validationDefault03" name="city">
+                <input type="text" class="form-control" id="validationDefault03" name="city" value="{{@$user->city}}">
                 <span class="text-danger">
                     @error('city')
                         {{ $message }}
@@ -72,7 +77,7 @@
 
 
             <div class="col-12">
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary" type="submit">{{$title}}</button>
             </div>
         </form>
     </div>

@@ -64,6 +64,10 @@ Route::get('/users', [BasicController::class, 'users']);
 // delete 
 Route::get('/delete/{id}', [BasicController::class, 'delete']);
 
+Route::get('/singleUser/{id}', [BasicController::class, 'singleUser']);
+
+Route::post('/update/{id}', [BasicController::class, 'update']);
+
 // Single Action Controller 
 // Route::get('/product', SingleController::class);
 

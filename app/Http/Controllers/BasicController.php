@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Register;
-,
+
 class BasicController extends Controller
 {
     public function index(){
@@ -14,7 +14,10 @@ class BasicController extends Controller
         return view('product');
     }
     public function contact(){
-        return view('contact');
+        $url = url('/contact');
+        $title = "Create";
+        $data = compact('url','title');
+        return view('contact', $data);
     }
     // registration form 
 
@@ -59,4 +62,33 @@ class BasicController extends Controller
         }
         return redirect('/users');
     }
+
+    public function singleUser($id){
+        $user = Register::find($id);
+
+        if(!is_null($user)){
+            $url = url('/update') . '/' . $id;
+            $title = "Update";
+            $data = compact('user','title','url');
+            return view('/contact')->with($data);
+        }
+
+        return redirect('/users');
+    }
+
+    public function update(Request $request, $id){
+        $user_update = Register::find($id);
+
+        $user_update->name = $request['name'];
+        $user_update->email = $request['email'];
+        $user_update->username = $request['username'];
+        $user_update->city = $request['city'];
+
+        $user_update->save();
+
+        return redirect('/users');
+
+
+    }
+
 }

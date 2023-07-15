@@ -25,7 +25,7 @@
             <td>{{$item->city}}</td>
             <td>
              
-                <a href="" class="btn btn-outline-warning">Edit</a>
+                <a href="{{url('/singleUser')}}/{{$item->user_id}}" class="btn btn-outline-warning">Edit</a>
                 <a href="{{url('/delete')}}/{{$item->user_id}}" class="btn btn-outline-danger">Delete</a>
             </td>
             
